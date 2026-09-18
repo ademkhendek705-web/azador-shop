@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AZADOR | Old Money Collection</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -15,11 +15,7 @@
             --border-color: #E6DFD5;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-color);
@@ -28,7 +24,7 @@
         }
 
         header {
-            padding: 30px 20px;
+            padding: 40px 20px 30px;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
@@ -54,7 +50,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -75,21 +71,19 @@
             transition: transform 0.3s ease;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
+        .product-card:hover { transform: translateY(-5px); }
 
         .product-card img {
             width: 100%;
             height: 280px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 4px;
             margin-bottom: 15px;
         }
 
         .product-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 8px;
         }
 
@@ -114,44 +108,66 @@
             transition: background 0.3s ease;
         }
 
-        .btn-buy:hover {
-            background: var(--accent-gold);
-        }
+        .btn-buy:hover { background: var(--accent-gold); }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="images/logo.jpg.jfif" alt="AZADOR Logo" class="logo-img" onerror="this.style.display='none'">
+        <img src="images/logo.jpg" alt="AZADOR Logo" class="logo-img" onerror="this.style.display='none'">
         <h1>AZADOR</h1>
-        <p>Old Money Aesthetics</p>
+        <p>OLD MONEY COLLECTION</p>
     </header>
 
     <div class="container">
         <div class="products-grid">
 
-            <!-- Product 1 -->
+            <!-- Polo Navy -->
             <div class="product-card">
-                <img src="images/polo.jpg.jpg" alt="Classic Polo Navy">
+                <img src="images/polo-navy.jpg" alt="Classic Polo Navy">
                 <h3>CLASSIC POLO - NAVY</h3>
                 <div class="price">4500 DA</div>
-                <a href="checkout.html?item=polo1" class="btn-buy">Commander</a>
+                <a href="checkout.html?item=polo_navy" class="btn-buy">Commander</a>
             </div>
 
-            <!-- Product 2 -->
+            <!-- Polo Ivory -->
             <div class="product-card">
-                <img src="images/polo1.jpg.jfif" alt="Classic Polo Ivory">
+                <img src="images/polo-ivory.jpg" alt="Classic Polo Ivory">
                 <h3>CLASSIC POLO - IVORY</h3>
                 <div class="price">4500 DA</div>
-                <a href="checkout.html?item=polo2" class="btn-buy">Commander</a>
+                <a href="checkout.html?item=polo_ivory" class="btn-buy">Commander</a>
             </div>
 
-            <!-- Product 3 -->
+            <!-- Polo Espresso -->
             <div class="product-card">
-                <img src="images/polo2.jpg.jfif" alt="Classic Polo Espresso">
+                <img src="images/polo-espresso.jpg" alt="Classic Polo Espresso">
                 <h3>CLASSIC POLO - ESPRESSO</h3>
                 <div class="price">4500 DA</div>
-                <a href="checkout.html?item=polo3" class="btn-buy">Commander</a>
+                <a href="checkout.html?item=polo_espresso" class="btn-buy">Commander</a>
+            </div>
+
+            <!-- Hoodie Black -->
+            <div class="product-card">
+                <img src="images/hoodie-black.png" alt="Essential Hoodie Black">
+                <h3>ESSENTIAL HOODIE - BLACK</h3>
+                <div class="price">6500 DA</div>
+                <a href="checkout.html?item=hoodie_black" class="btn-buy">Commander</a>
+            </div>
+
+            <!-- Zip Navy -->
+            <div class="product-card">
+                <img src="images/zip-navy.png" alt="Zip Hoodie Navy">
+                <h3>ZIP HOODIE - NAVY</h3>
+                <div class="price">7000 DA</div>
+                <a href="checkout.html?item=zip_navy" class="btn-buy">Commander</a>
+            </div>
+
+            <!-- Zip Black -->
+            <div class="product-card">
+                <img src="images/zip-black.png" alt="Zip Hoodie Black">
+                <h3>ZIP HOODIE - BLACK</h3>
+                <div class="price">7000 DA</div>
+                <a href="checkout.html?item=zip_black" class="btn-buy">Commander</a>
             </div>
 
         </div>
