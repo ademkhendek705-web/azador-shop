@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* الثيم الافتراضي: Classic Ivory */
         :root {
             --bg-color: #F9F6F0;
             --text-main: #2C221E;
@@ -16,29 +15,10 @@
             --border-color: #E6DFD5;
         }
 
-        /* ثيم Midnight Navy */
-        [data-theme="navy"] {
-            --bg-color: #0F172A;
-            --text-main: #F8FAFC;
-            --accent-gold: #CBD5E1;
-            --card-bg: #1E293B;
-            --border-color: #334155;
-        }
-
-        /* ثيم Noir Dark */
-        [data-theme="noir"] {
-            --bg-color: #121212;
-            --text-main: #E5E5E5;
-            --accent-gold: #D4AF37;
-            --card-bg: #1A1A1A;
-            --border-color: #2A2A2A;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body {
@@ -47,27 +27,8 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .top-bar {
-            display: flex;
-            justify-content: flex-end;
-            gap: 15px;
-            padding: 10px 20px;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.8rem;
-        }
-
-        .top-bar select {
-            background: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 4px 8px;
-            border-radius: 4px;
-            outline: none;
-            cursor: pointer;
-        }
-
         header {
-            padding: 30px 20px;
+            padding: 40px 20px 30px;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
@@ -93,7 +54,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -120,7 +81,7 @@
 
         .product-card img {
             width: 100%;
-            height: 300px;
+            height: 280px;
             object-fit: contain;
             border-radius: 4px;
             margin-bottom: 15px;
@@ -150,105 +111,75 @@
             text-transform: uppercase;
             font-weight: 600;
             border-radius: 4px;
+            transition: background 0.3s ease;
         }
 
         .btn-buy:hover {
-            opacity: 0.9;
+            background: var(--accent-gold);
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div>
-            <label for="themeSelect">Thème: </label>
-            <select id="themeSelect" onchange="changeTheme(this.value)">
-                <option value="default">Classic Ivory</option>
-                <option value="navy">Midnight Navy</option>
-                <option value="noir">Noir Luxe</option>
-            </select>
-        </div>
-        <div>
-            <label for="currencySelect">Devise: </label>
-            <select id="currencySelect" onchange="changeCurrency(this.value)">
-                <option value="DZD">DZD (د.ج)</option>
-                <option value="EUR">EUR (€)</option>
-                <option value="USD">USD ($)</option>
-            </select>
-        </div>
-    </div>
-
     <header>
         <img src="images/logo.jpg.jfif" alt="AZADOR Logo" class="logo-img" onerror="this.style.display='none'">
         <h1>AZADOR</h1>
-        <p>Old Money Collection</p>
+        <p>OLD MONEY COLLECTION</p>
     </header>
 
     <div class="container">
         <div class="products-grid">
 
-            <!-- Produit 1 -->
+            <!-- Polo 1 -->
+            <div class="product-card">
+                <img src="images/polo-navy.png" alt="Classic Polo Navy">
+                <h3>CLASSIC POLO - NAVY</h3>
+                <div class="price">4500 DA</div>
+                <a href="checkout.html?item=polo_navy" class="btn-buy">Commander</a>
+            </div>
+
+            <!-- Polo 2 -->
+            <div class="product-card">
+                <img src="images/polo-ivory.png" alt="Classic Polo Ivory">
+                <h3>CLASSIC POLO - IVORY</h3>
+                <div class="price">4500 DA</div>
+                <a href="checkout.html?item=polo_ivory" class="btn-buy">Commander</a>
+            </div>
+
+            <!-- Polo 3 -->
+            <div class="product-card">
+                <img src="images/polo-espresso.png" alt="Classic Polo Espresso">
+                <h3>CLASSIC POLO - ESPRESSO</h3>
+                <div class="price">4500 DA</div>
+                <a href="checkout.html?item=polo_espresso" class="btn-buy">Commander</a>
+            </div>
+
+            <!-- Sweat 1 -->
             <div class="product-card">
                 <img src="images/hoodie-black.png" alt="Essential Hoodie Black">
                 <h3>ESSENTIAL HOODIE - BLACK</h3>
-                <div class="price" data-dzd="6500">6500 DA</div>
+                <div class="price">6500 DA</div>
                 <a href="checkout.html?item=hoodie_black" class="btn-buy">Commander</a>
             </div>
 
-            <!-- Produit 2 -->
+            <!-- Sweat 2 -->
             <div class="product-card">
                 <img src="images/zip-navy.jpg" alt="Zip Hoodie Navy">
                 <h3>ZIP HOODIE - NAVY</h3>
-                <div class="price" data-dzd="7000">7000 DA</div>
+                <div class="price">7000 DA</div>
                 <a href="checkout.html?item=zip_navy" class="btn-buy">Commander</a>
             </div>
 
-            <!-- Produit 3 -->
+            <!-- Sweat 3 -->
             <div class="product-card">
                 <img src="images/zip-black.png" alt="Zip Hoodie Black">
                 <h3>ZIP HOODIE - BLACK</h3>
-                <div class="price" data-dzd="7000">7000 DA</div>
+                <div class="price">7000 DA</div>
                 <a href="checkout.html?item=zip_black" class="btn-buy">Commander</a>
             </div>
 
         </div>
     </div>
 
-    <script>
-        // تغيير ثيم الألوان
-        function changeTheme(theme) {
-            if (theme === 'default') {
-                document.documentElement.removeAttribute('data-theme');
-            } else {
-                document.documentElement.setAttribute('data-theme', theme);
-            }
-        }
-
-        // تحويل العملات تلقائياً
-        const rates = {
-            DZD: 1,
-            EUR: 0.0068, // سعر تحويلي تقريبي
-            USD: 0.0075
-        };
-
-        const symbols = {
-            DZD: "DA",
-            EUR: "€",
-            USD: "$"
-        };
-
-        function changeCurrency(currency) {
-            const priceElements = document.querySelectorAll('.price');
-            priceElements.forEach(el => {
-                const basePriceDZD = parseFloat(el.getAttribute('data-dzd'));
-                if (currency === 'DZD') {
-                    el.textContent = `${basePriceDZD} ${symbols.DZD}`;
-                } else {
-                    const converted = (basePriceDZD * rates[currency]).toFixed(2);
-                    el.textContent = `${converted} ${symbols[currency]}`;
-                }
-            });
-        }
-    </script>
 </body>
 </html>
