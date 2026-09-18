@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AZADOR | Checkout</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-color: #F9F6F0;
@@ -14,61 +15,85 @@
             --border-color: #E6DFD5;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 20px;
         }
 
-        .checkout-card {
+        .checkout-container {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            max-width: 800px;
+            max-width: 850px;
             width: 100%;
             padding: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        @media (max-width: 650px) {
-            .checkout-card { grid-template-columns: 1fr; }
+        .brand-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .brand-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            letter-spacing: 4px;
+        }
+
+        .brand-header p {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .product-summary {
+            background: #FDFBF7;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
             text-align: center;
-            border-right: 1px solid var(--border-color);
-            padding-right: 30px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-        }
-
-        @media (max-width: 650px) {
-            .product-summary { border-right: none; border-bottom: 1px solid var(--border-color); padding-right: 0; padding-bottom: 20px; }
+            justify-content: center;
         }
 
         .product-summary img {
-            width: 100%;
-            max-width: 220px;
+            max-width: 180px;
             height: auto;
-            border-radius: 4px;
             margin-bottom: 15px;
+            object-fit: contain;
         }
 
-        .product-summary h2 {
+        .product-summary h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 5px;
         }
 
@@ -76,74 +101,100 @@
             color: var(--accent-gold);
             font-weight: 600;
             font-size: 1.1rem;
+            margin-bottom: 10px;
         }
 
-        .form-group { margin-bottom: 15px; }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
 
-        label {
+        .form-group label {
             display: block;
             font-size: 0.75rem;
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 5px;
-            font-weight: 600;
+            font-weight: 500;
         }
 
-        input, select, textarea {
+        .form-group input, .form-group select {
             width: 100%;
-            padding: 10px;
+            padding: 10px 12px;
             border: 1px solid var(--border-color);
             border-radius: 4px;
-            background: #FAFAFA;
             font-family: inherit;
+            font-size: 0.85rem;
+            background: transparent;
+            outline: none;
         }
 
-        .btn-submit {
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--accent-gold);
+        }
+
+        .btn-confirm {
             width: 100%;
             padding: 12px;
             background: var(--text-main);
             color: var(--bg-color);
             border: none;
             border-radius: 4px;
-            font-weight: 600;
+            font-size: 0.8rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
-            transition: background 0.3s ease;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+            margin-top: 10px;
         }
 
-        .btn-submit:hover { background: var(--accent-gold); }
+        .btn-confirm:hover {
+            opacity: 0.9;
+        }
 
         .back-link {
             display: block;
             text-align: center;
             margin-top: 15px;
+            font-size: 0.75rem;
             color: var(--text-main);
             text-decoration: none;
-            font-size: 0.8rem;
             opacity: 0.7;
+        }
+
+        .back-link:hover {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
-    <div class="checkout-card">
-        <div class="product-summary">
-            <img id="product-img" src="images/polo.jpg" alt="Produit">
-            <h2 id="product-title">CLASSIC POLO - NAVY</h2>
-            <div id="product-price" class="price">4500 DA</div>
+    <div class="checkout-container">
+        <div class="brand-header">
+            <h1>AZADOR</h1>
+            <p>Finaliser votre commande</p>
         </div>
 
-        <div class="order-form">
-            <form id="checkout-form">
+        <div class="checkout-grid">
+            <div class="product-summary">
+                <img id="itemImage" src="polo.jpg.jpg" alt="Polo AZADOR">
+                <h3 id="itemName">CLASSIC POLO - NAVY</h3>
+                <div class="price" id="itemPrice">4500 DA</div>
+                <p style="font-size: 0.7rem; opacity: 0.6;">Paiement à la livraison (Paiement Cash à la réception)</p>
+            </div>
+
+            <form id="orderForm">
                 <div class="form-group">
-                    <label for="name">Nom & Prénom</label>
-                    <input type="text" id="name" required placeholder="Votre nom complet">
+                    <label for="fullName">Nom & Prénom</label>
+                    <input type="text" id="fullName" required placeholder="Votre nom complet">
                 </div>
+
                 <div class="form-group">
-                    <label for="phone">Numéro de Téléphone</label>
+                    <label for="phone">Numéro de téléphone</label>
                     <input type="tel" id="phone" required placeholder="06 / 07 / 05 XXXXXXXX">
                 </div>
+
                 <div class="form-group">
                     <label for="wilaya">Wilaya</label>
                     <select id="wilaya" required>
@@ -151,61 +202,64 @@
                         <option value="16">16 - Alger</option>
                         <option value="31">31 - Oran</option>
                         <option value="25">25 - Constantine</option>
-                        <!-- اضف باقي الولايات هنا -->
+                        <option value="06">06 - Béjaïa</option>
+                        <option value="15">15 - Tizi Ouzou</option>
+                        <option value="19">19 - Sétif</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="address">Adresse de livraison</label>
-                    <input type="text" id="address" required placeholder="Rue, Commune...">
+                    <input type="text" id="address" required placeholder="Rue, Commune, Cité...">
                 </div>
-                <button type="submit" class="btn-submit">Confirmer la commande</button>
+
+                <button type="submit" class="btn-confirm">Confirmer la commande</button>
+                <a href="index.html" class="back-link">← Retour au catalogue</a>
             </form>
-            <a href="index.html" class="back-link">← Retour au catalogue</a>
         </div>
     </div>
 
     <script>
         const products = {
-            'polo_navy': {
-                title: 'CLASSIC POLO - NAVY',
-                price: '4500 DA',
-                img: 'images/polo.jpg'
+            polo1: {
+                name: "CLASSIC POLO - NAVY",
+                price: "4500 DA",
+                image: "polo.jpg.jpg"
             },
-            'polo_ivory': {
-                title: 'CLASSIC POLO - IVORY',
-                price: '4500 DA',
-                img: 'images/polo1.jpg'
+            polo2: {
+                name: "CLASSIC POLO - IVORY",
+                price: "4500 DA",
+                image: "polo1.jpg.jfif"
             },
-            'polo_espresso': {
-                title: 'CLASSIC POLO - ESPRESSO',
-                price: '4500 DA',
-                img: 'images/polo2.jpg'
-            },
-            'hoodie_black': {
-                title: 'ESSENTIAL HOODIE - BLACK',
-                price: '6500 DA',
-                img: 'images/hoodie-black.jpg'
-            },
-            'zip_navy': {
-                title: 'ZIP HOODIE - NAVY',
-                price: '7000 DA',
-                img: 'images/zip-navy.jpg'
-            },
-            'zip_black': {
-                title: 'ZIP HOODIE - BLACK',
-                price: '7000 DA',
-                img: 'images/zip-black.jpg'
+            polo3: {
+                name: "CLASSIC POLO - ESPRESSO",
+                price: "4500 DA",
+                image: "polo2.jpg.jfif"
             }
         };
 
         const urlParams = new URLSearchParams(window.location.search);
-        const itemKey = urlParams.get('item');
+        const selectedItem = urlParams.get('item') || 'polo1';
+        const imgElement = document.getElementById('itemImage');
 
-        if (itemKey && products[itemKey]) {
-            document.getElementById('product-title').innerText = products[itemKey].title;
-            document.getElementById('product-price').innerText = products[itemKey].price;
-            document.getElementById('product-img').src = products[itemKey].img;
+        if (products[selectedItem]) {
+            document.getElementById('itemName').textContent = products[selectedItem].name;
+            document.getElementById('itemPrice').textContent = products[selectedItem].price;
+            
+            imgElement.src = products[selectedItem].image;
+
+            // حيلة تجريب مسار مجلد images في حال تغيير موقعه مستقبلاً
+            imgElement.onerror = function() {
+                if (!this.src.includes('images/')) {
+                    this.src = 'images/' + products[selectedItem].image;
+                }
+            };
         }
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci ! Votre commande a été enregistrée avec succès.');
+        });
     </script>
 </body>
 </html>
